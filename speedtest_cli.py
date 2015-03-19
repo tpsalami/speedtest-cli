@@ -543,9 +543,9 @@ def speedtest():
     parser.add_argument('--list', action='store_true',
                         help='Display a list of speedtest.net servers '
                              'sorted by distance')
-	parser.add_argument('--csv', action='store_true',
-						help='Format results as CSV (ping, download, upload); '
-							'enables --simple as well')
+    parser.add_argument('--csv', action='store_true', 
+                        help='Format results as CSV (ping, download, upload); '
+                             'enables --simple as well')
     parser.add_argument('--server', help='Specify a server ID to test against')
     parser.add_argument('--mini', help='URL of the Speedtest Mini server')
     parser.add_argument('--source', help='Source IP address to bind to')
