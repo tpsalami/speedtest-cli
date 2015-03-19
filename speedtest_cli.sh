@@ -1,0 +1,1 @@
+python speedtest-cli.py --csv --server 1778
