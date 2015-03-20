@@ -690,35 +690,34 @@ def speedtest():
     urls = []
     for size in sizes:
         for i in range(0, 4):
-            urls.append('%s/random%sx%s.jpg' %
-                        (os.path.dirname(best['url']), size, size))
+            urls.append('%s/random%sx%s.jpg' % (os.path.dirname(best['url']), size, size))
     if not args.simple:
         print_('Testing download speed', end='')
+		
     dlspeed = downloadSpeed(urls, args.simple)
+	
     if args.csv:
         print_('%0.2f,' % ((dlspeed / 1000 / 1000) * args.units[1]), end='')
     else:
         if not args.simple:
             print_()
-            print_('Download: %0.2f M%s/s' %
-		((dlspeed / 1000 / 1000) * args.units[1], args.units[0]))
-
+        print_('Download: %0.2f M%s/s' % ((dlspeed / 1000 / 1000) * args.units[1], args.units[0]))
+			
     sizesizes = [int(.25 * 1000 * 1000), int(.5 * 1000 * 1000)]
     sizes = []
     for size in sizesizes:
         for i in range(0, 25):
-            sizes.append(size)
+            sizes.append(size)		
     if not args.simple:
-        print_('Testing upload speed', end='')
-		
+        print_('Testing upload speed', end='')	
     ulspeed = uploadSpeed(best['url'], sizes, args.simple)
     if args.csv:
-        print_('%0.2f' % ((ulspeed / 1000 / 1000) * args.units[1]), end='')
-	else:
-	    if not args.simple:
-		print_()
-	    print_('Upload: %0.2f M%s/s' %
-		((ulspeed / 1000 / 1000) * args.units[1], args.units[0]))
+        print_('%0.2f,' % ((ulspeed / 1000 / 1000) * args.units[1]), end='')
+        print_()
+    else:
+        if not args.simple:
+            print_()
+        print_('Upload: %0.2f M%s/s' % ((ulspeed / 1000 / 1000) * args.units[1], args.units[0]))
 
     if args.share and args.mini:
         print_('Cannot generate a speedtest.net share results image while '
